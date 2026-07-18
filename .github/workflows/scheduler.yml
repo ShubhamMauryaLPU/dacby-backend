@@ -1,21 +1,18 @@
 name: Order Status Scheduler
 
-# Runs every 5 minutes and calls the deployed backend's protected
-# scheduler endpoint. Store these as GitHub repo secrets:
-#   BACKEND_URL             e.g. https://your-app.onrender.com
-#   SCHEDULER_SECRET_KEY    same value as in your backend .env
 on:
   schedule:
-    - cron: '*/5 * * * *'
-  workflow_dispatch: {} # allows manual trigger from the Actions tab for testing
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
 
 jobs:
   trigger-scheduler:
     runs-on: ubuntu-latest
+
     steps:
       - name: Call scheduler endpoint
         run: |
-          curl -X POST "${{ secrets.BACKEND_URL }}/api/v1/scheduler/run-status-update" \
+          curl --fail-with-body \
+            -X POST "${{ secrets.BACKEND_URL }}/api/v1/scheduler/run-status-update" \
             -H "x-scheduler-secret: ${{ secrets.SCHEDULER_SECRET_KEY }}" \
-            -H "Content-Type: application/json" \
-            --fail-with-body
+            -H "Content-Type: application/json"
