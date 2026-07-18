@@ -1,0 +1,11 @@
+services:
+  - type: cron
+    name: order-status-scheduler
+    env: node
+    plan: starter
+    schedule: "*/5 * * * *"
+    buildCommand: npm ci
+    startCommand: npm run scheduler:run
+    envVars:
+      - key: DB_URI
+        sync: false
