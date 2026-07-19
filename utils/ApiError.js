@@ -1,4 +1,3 @@
-// A predictable error shape so the global error handler can respond consistently.
 class ApiError extends Error {
   constructor(statusCode, message, details = null) {
     super(message);

@@ -12,7 +12,6 @@ const triggerStatusUpdate = asyncHandler(async (req, res) => {
 });
 
 // GET /api/v1/scheduler/logs?page=1&limit=20
-// Bonus: powers a "scheduler logs dashboard" in the frontend.
 const getSchedulerLogs = asyncHandler(async (req, res) => {
   const { page = 1, limit = 20 } = req.query;
   const skip = (Number(page) - 1) * Number(limit);

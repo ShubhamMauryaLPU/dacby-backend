@@ -29,7 +29,6 @@ const schedulerLogSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    // Small breakdown so the dashboard can show "12 moved PLACED->PROCESSING, 3 moved PROCESSING->READY_TO_SHIP"
     transitionsSummary: {
       type: mongoose.Schema.Types.Mixed,
       default: {},

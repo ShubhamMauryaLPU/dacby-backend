@@ -55,12 +55,10 @@ const orderSchema = new mongoose.Schema(
     }
   },
   {
-    timestamps: true, // adds createdAt, updatedAt automatically
+    timestamps: true,
     versionKey: '__v',
   }
 );
-
-// Compound index to make status-filtered, paginated queries fast.
 orderSchema.index({ orderStatus: 1, createdAt: -1 });
 
 module.exports = mongoose.model('Order', orderSchema);
