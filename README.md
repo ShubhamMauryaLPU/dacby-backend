@@ -1,10 +1,9 @@
 # Dacby OrderFlow Backend API
 
-A highly resilient, production-ready Express.js and Mongoose/MongoDB backend for full-stack order management, state tracking, and automated transitions. This project showcases enterprise-level patterns including **API idempotency**, **race-condition safeguards**, **granular status histories**, **automated cron schedulers**, and **robust middleware-driven error handling**.
-
+A highly resilient, production-ready Express.js and Mongoose/MongoDB backend for full-stack order management, state tracking, and automated transitions.
 ---
 
-## 🏗️ Architectural Overview & Design Patterns
+## Architectural Overview & Design Patterns
 
 The backend is structured around a clean operational architecture, separating routing, request handling (controllers), business orchestration (services), and schemas (models).
 
@@ -48,7 +47,6 @@ graph TD
     SS --> M_Ord & M_Hist & M_Log
 ```
 
-### 🧠 Interviewer Highlights & Technical Choices
 
 #### 1. API Idempotency (Duplicate Order Prevention)
 
@@ -85,7 +83,7 @@ The database maintains orders in various phases. A scheduled process updates ord
 
 ---
 
-## 🗄️ Database Schemas
+## Database Schemas
 
 ### 1. `Order`
 
@@ -128,7 +126,7 @@ Performance analytics and logs for the scheduler process.
 
 ---
 
-## 🔌 API Documentation
+## API Documentation
 
 ### System Routes
 
@@ -323,14 +321,14 @@ Performance analytics and logs for the scheduler process.
 
 ---
 
-## 🛠️ Local Installation & Setup
+## Local Installation & Setup
 
-### ⚙️ Prerequisites
+### Prerequisites
 
 - Node.js (v18+ recommended)
 - MongoDB (Local instance or MongoDB Atlas account URI)
 
-### 🚀 Step-by-Step Instructions
+### Step-by-Step Instructions
 
 1. **Extract Repository & Navigate to Backend Workspace:**
 
@@ -348,7 +346,7 @@ Performance analytics and logs for the scheduler process.
    CORS_ORIGIN=*
 
    # Scheduler Configuration
-   SCHEDULER_SECRET_KEY=yoursupersecurekeyhere
+   SCHEDULER_SECRET_KEY=my-secret-key
 
    # Transition Thresholds (Minutes)
    PLACED_TO_PROCESSING_MINUTES=10
@@ -376,7 +374,7 @@ Performance analytics and logs for the scheduler process.
 
 ---
 
-## 🧪 Testing and Verification Jobs
+##  Testing and Verification Jobs
 
 If you wish to test or verify scheduler flows locally without configuring external polling engines:
 
